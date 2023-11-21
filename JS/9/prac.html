@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Bit Up Counter</title>
+</head>
+<body>
+    <h1>5-Bit Up Counter</h1>
+    <p id="counterValue">00000</p>
+
+    <script>
+        // Function to increment a binary number and update the display
+        function incrementCounter() {
+            let currentValue = parseInt(document.getElementById('counterValue').textContent, 2);
+            let nextValue = (currentValue + 1) & 0b11111; // Ensure it stays 5 bits
+            document.getElementById('counterValue').textContent = nextValue.toString(2).padStart(5, '0');
+        }
+
+        // Function to update the counter periodically (you can adjust the interval as needed)
+        function startCounter() {
+            setInterval(incrementCounter, 500); // Update every 1000 milliseconds (1 second)
+        }
+
+        // Start the counter when the page loads
+        window.onload = startCounter;
+    </script>
+</body>
+</html>

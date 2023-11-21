@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array Operations</title>
+  <style>
+    .res1,.res2,.res3,.res4,.res5,.res6{
+   margin: 8px 10px; 
+  }
+  lable,input{
+    margin : 5px 10px;
+  }
+  </style>
+  </head>
+  
+  <body>
+    <h1>Array Operations</h1>
+
+    <label for="1">Enter Array Length:</label>
+    <input type="number" id="1" />
+    <button onclick="lengthh()">Set Length</button>
+    <br />
+
+    <label for="2">Enter Array Elements (comma-separated):</label>
+    <input type="text" id="2" />
+    <button onclick="arrayip()">Insert Elements</button>
+    <br />
+
+    <label for="delete">Delete Element:</label>
+    <input type="text" id="delete" />
+    <button onclick="del()">Delete</button>
+    <br />
+
+    <label for="fnd">Find Element:</label>
+    <input type="text" id="fnd" />
+    <button onclick="find()">Find</button>
+    <br />
+
+    <button onclick="Empty()">Empty Array</button>
+    <button onclick="Display()">Display Array</button>
+    <br />
+
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <div id="res3"></div>
+    <div id="res4"></div>
+    <div id="res5"></div>
+    <div id="res6"></div>
+    <script>
+      var n;
+      function lengthh() {
+        n = document.getElementById("1").value;
+        var str = "You have entered length:" + n;
+        document.getElementById("res1").innerHTML = str;
+      }
+      var Array = [n];
+      function arrayip() {
+        let arrval = document.getElementById("2").value;
+        console.log(arrval);
+        Array = arrval.split(",");
+        console.log(Array.length);
+        console.log(n);
+        if (Array.length > n) {
+          var str =
+            "You have entered more elements as compared to the array size";
+          document.getElementById("res2").innerHTML = str;
+        } else {
+          var str = "You have entered :" + Array;
+          document.getElementById("res2").innerHTML = str;
+        }
+      }
+      function del() {
+        let val = document.getElementById("delete").value;
+        var f = Array.indexOf(val);
+        if (f == -1) {
+          var str = "Value :" + val + " is not present in the array";
+          document.getElementById("res3").innerHTML = str;
+        } else {
+          delete Array[f];
+          var str = "Value :" + val + " is deleted";
+          document.getElementById("res3").innerHTML = str;
+        }
+      }
+      function find() {
+        var val = document.getElementById("fnd").value;
+        var f = Array.indexOf(val);
+        if (f == -1) {
+          var str = "Value :" + val + " is not present in the array";
+          document.getElementById("res4").innerHTML = str;
+        } else {
+          var str = "Value :" + val + " is present in the array";
+          document.getElementById("res4").innerHTML = str;
+        }
+      }
+      function Empty() {
+        Array = [];
+        document.getElementById("res5").innerHTML = "Array is Emptied";
+      }
+      function Display() {
+        var str = "";
+        for (var i = 0; i < Array.length; i++) {
+          if (Array[i] != undefined) str += Array[i] + " ";
+        }
+        document.getElementById("res6").innerHTML = str;
+      }
+    </script>
+  </body>
+</html>
